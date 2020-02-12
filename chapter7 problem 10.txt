@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+double add(double x, double y);
+double calculate(double x, double y, double (*q)(double,double));
+double subtract(double x, double y);
+int main()
+{
+	double a;
+	double b;
+	cout << "두 수를 입력하세요\n";
+	while (cin >> a >> b)
+	{
+		cout << "두 수의 합은 : " << calculate(a, b, add);
+		cout << " 입니다.\n";
+		cout << "두 수의 뺄셈은 : " << calculate(a, b, subtract);
+		cout << " 입니다.\n";
+		cout << "두 수를 입력하세요. (그만두려면 q)\n";
+	}
+	cout << "종료.\n";
+	
+	return 0;
+}
+
+double add(double x, double y)
+{
+	return x + y;
+}
+double subtract(double x, double y)
+{
+	return x - y;
+}
+double calculate(double x, double y, double (*q)(double,double))
+{
+	
+		return (*q)(x,y);
+}
